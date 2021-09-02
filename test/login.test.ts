@@ -12,8 +12,11 @@ describe("Login", () => {
     browser = await chromium.launch(launchConfig);
     context = await browser.newContext();
     page = await browser.newPage();
-    await page.goto("http://192.168.5.59:8000");
 
+    await page.goto("http://localhost:8000");
+  });
+
+  beforeEach(async () => {
     loginBtn = await page.$("button:text('Login')");
     errorDiv = await page.$(".field-error.font-semibold");
   });
@@ -53,9 +56,8 @@ describe("Login", () => {
   });
 
   test("Username is not registered", async () => {
-    await page.waitForSelector(".field-error.font-semibold");
-    const eDiv = await page.$(".field-error.font-semibold");
-    const errorTxt = await eDiv?.innerText();
+    await page.waitForLoadState("domcontentloaded");
+    const errorTxt = await errorDiv?.innerText();
     expect(errorTxt).toBe("Admin123 is not registered");
   });
 
@@ -64,10 +66,7 @@ describe("Login", () => {
     await page.type('input[name="password"]', "Network@123");
     await page.click('input[name="robot"]');
 
-    await Promise.all([
-      page.waitForNavigation(),
-      page.click('button:text("Login")'),
-    ]);
+    await Promise.all([page.waitForNavigation(), loginBtn?.click()]);
   });
 
   afterAll(async () => {

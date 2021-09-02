@@ -1,4 +1,7 @@
-export const launchConfig = { headless: false, slowMo: 80 };
+const baseURL = "http://localhost:8000";
+export default baseURL;
+
+export const launchConfig = { headless: false, slowMo: 0 };
 
 export const contextConfig = {
   recordVideo: {
