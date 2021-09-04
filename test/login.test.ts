@@ -1,5 +1,5 @@
 import { Page } from "playwright";
-import Environment from "../env/Environments";
+import Environment from "../utils/environments";
 import LoginPage from "../pages/Login.page";
 declare const page: Page;
 
