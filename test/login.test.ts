@@ -1,19 +1,16 @@
-import { chromium, Browser, BrowserContext, Page } from "playwright";
-import { launchConfig } from "../shared/utilites";
+import { Page } from "playwright";
+import Environment from "../env/Environments";
+import LoginPage from "../pages/Login.page";
+declare const page: Page;
 
 describe("Login", () => {
-  let browser: Browser;
-  let page: Page;
-  let context: BrowserContext;
   let loginBtn: any;
   let errorDiv: any;
+  let loginPage: LoginPage;
 
   beforeAll(async () => {
-    browser = await chromium.launch(launchConfig);
-    context = await browser.newContext();
-    page = await browser.newPage();
-
-    await page.goto("http://localhost:8000");
+    await page.goto(Environment.baseURL);
+    loginPage = new LoginPage(page);
   });
 
   beforeEach(async () => {
@@ -62,16 +59,9 @@ describe("Login", () => {
   });
 
   test("Login Success", async () => {
-    await page.type('input[name="username"]', "Administrator");
-    await page.type('input[name="password"]', "Network@123");
-    await page.click('input[name="robot"]');
-
-    await Promise.all([page.waitForNavigation(), loginBtn?.click()]);
-  });
-
-  afterAll(async () => {
-    await page.close();
-    await context.close();
-    await browser.close();
+    await Promise.all([
+      page.waitForNavigation(),
+      loginPage.login("Administrator", "Network@123"),
+    ]);
   });
 });
