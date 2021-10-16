@@ -1,3 +1,5 @@
+npx playwright install
+
 npx playwright codegen http://192.168.5.59:8000
 
 Report:
@@ -6,3 +8,7 @@ npm i jasmine
 npm i jest-allure
 npm i -g allure-commandline
 npm i jest-allure-reporter
+
+
+Tracing:
+npx playwright show-trace trace.zip

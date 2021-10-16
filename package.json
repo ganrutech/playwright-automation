@@ -10,7 +10,7 @@
     "allure:generate": "allure generate allure-results"
   },
   "keywords": [],
-  "author": "",
+  "author": "Guruprakash Narendran",
   "license": "ISC",
   "devDependencies": {
     "@playwright/test": "^1.14.1",
