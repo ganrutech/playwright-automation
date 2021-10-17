@@ -14,4 +14,12 @@ export default class District {
     );
     return err;
   }
+
+  public async getToastMessage() {
+    await this.page.waitForSelector("div.ant-notification-notice-description");
+    const message = await this.page.$(
+      "div.ant-notification-notice-description"
+    );
+    return await message?.innerText();
+  }
 }
