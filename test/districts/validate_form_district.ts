@@ -1,6 +1,7 @@
 import { test, expect, Page, BrowserContext } from "@playwright/test";
 import District from "../../pages/districts/District.page";
 
+// test.use({ storageState: "auth.json" });
 test.describe("District form validation", () => {
   let context: BrowserContext;
   let page: Page;
@@ -8,14 +9,9 @@ test.describe("District form validation", () => {
 
   test.beforeAll(async ({ browser }) => {
     context = await browser.newContext();
-    await context.tracing.start({ screenshots: true, snapshots: true });
+
     page = await context.newPage();
     districtPage = new District(page);
-  });
-
-  test.afterAll(async () => {
-    await context.tracing.start({ screenshots: true, snapshots: true });
-    await context.tracing.stop({ path: "trace.zip" });
   });
 
   test("Goto divisions -> district @district-validate", async () => {
@@ -23,11 +19,12 @@ test.describe("District form validation", () => {
     await page.waitForLoadState("networkidle");
 
     expect(await page.title()).toBe("AP SDWAN Portal - District Management");
+
+    await page.click('span:text("Create")');
+    await page.waitForSelector("button[type=submit] span:text('OK')");
   });
 
   test("Create district modal @district-validate", async () => {
-    await page.click('span:text("Create")');
-    await page.waitForSelector("button[type=submit] span:text('OK')");
     await page.click("button[type=submit] span:text('OK')");
   });
 

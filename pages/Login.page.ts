@@ -1,4 +1,4 @@
-import { Page } from "playwright";
+import { Page } from "@playwright/test";
 
 export default class LoginPage {
   private page: Page;
@@ -9,12 +9,12 @@ export default class LoginPage {
 
   public async enterUsername(username: string) {
     const ele = await this.page.$('input[name="username"]');
-    await ele?.type(username);
+    await ele?.fill(username);
   }
 
   public async enterPassword(password: string) {
     const ele = await this.page.$('input[name="password"]');
-    await ele?.type(password);
+    await ele?.fill(password);
   }
 
   public async login(username: string, password: string) {

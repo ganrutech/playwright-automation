@@ -13,7 +13,7 @@
   "author": "Guruprakash Narendran",
   "license": "ISC",
   "devDependencies": {
-    "@playwright/test": "^1.14.1",
+    "@playwright/test": "^1.16.2",
     "allure-playwright": "^2.0.0-beta.13",
     "playwright": "^1.14.1",
     "ts-node": "^10.2.1",

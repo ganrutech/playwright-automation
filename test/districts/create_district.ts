@@ -1,4 +1,4 @@
-import { test, expect, Page } from "@playwright/test";
+import { expect, test, Page } from "@playwright/test";
 import District from "../../pages/districts/District.page";
 
 test.describe("Create new district", () => {
@@ -17,7 +17,7 @@ test.describe("Create new district", () => {
     expect(await page.title()).toBe("AP SDWAN Portal - District Management");
   });
 
-  test("Create district modal @validation", async () => {
+  test("Create district modal", async () => {
     await page.click('span:text("Create")');
     await page.waitForSelector("button[type=submit] span:text('OK')");
   });

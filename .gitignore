@@ -4,3 +4,4 @@
 /allure**
 /test-results**
 *.zip
+/playwright-report*
