@@ -3,4 +3,5 @@ export type ScenarioObject = {
   statusCode: number;
   message: string | object;
   data?: object;
+  skip?: boolean;
 };
