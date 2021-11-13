@@ -27,7 +27,7 @@ test.describe("Login", () => {
     await test.step("Should password is required", async () => {
       await username?.fill("Administrator");
       await loginBtn?.click();
-      expect(await errorMessage.textContent()).toBe("Password");
+      expect(await errorMessage.textContent()).toBe("Password is required");
     });
 
     await test.step("Should Verify that you are not a robot", async () => {
@@ -38,7 +38,7 @@ test.describe("Login", () => {
       );
     });
 
-    await page.waitForTimeout(3000);
+    await page.waitForTimeout(2000);
   });
 
   test("Should login success", async () => {

@@ -4,20 +4,15 @@ const config: PlaywrightTestConfig = {
   // retries: 0,
   use: {
     headless: false,
-    baseURL: "http://localhost:8000",
+    baseURL: "http://localhost:8000/api",
     // channel: "chrome",
     browserName: "chromium",
     screenshot: "only-on-failure",
     // trace: "retain-on-failure",
-    launchOptions: {
-      slowMo: 200,
-    },
-    storageState: "auth.json",
   },
   // globalSetup: require.resolve("./global-setup"),
   // grep: [new RegExp("@validation")],
-  // testMatch: ["login.test.ts"],
-  // testMatch: ["login.api.test.ts"],
+  testMatch: ["login.api.test.ts"],
   // reporter: [["dot"], ["allure-playwright"]],
   reporter: [["dot"]],
 };

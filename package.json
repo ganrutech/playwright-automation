@@ -7,7 +7,9 @@
     "test": "npx playwright test",
     "test:report": "npm run allure:clear && npx playwright test",
     "allure:clear": "rm -rf allure-results/ allure-report || true",
-    "allure:generate": "allure generate allure-results"
+    "allure:generate": "allure generate allure-results",
+    "api:login": "npx playwright test --config=apitest/login.config.ts",
+    "test:api": "npx playwright test --config=apitest/auth.config.ts"
   },
   "keywords": [],
   "author": "Guruprakash Narendran",
