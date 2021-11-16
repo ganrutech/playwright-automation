@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "npx playwright test",
-    "test:report": "npm run allure:clear && npx playwright test",
+    "test:report": "npx playwright test --reporter=html",
+    "show:report": "npx playwright show-report",
+    "test:allure-report": "npm run allure:clear && npx playwright test",
     "allure:clear": "rm -rf allure-results/ allure-report || true",
     "allure:generate": "allure generate allure-results",
     "api:login": "npx playwright test --config=apitest/login.config.ts",

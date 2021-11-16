@@ -15,11 +15,12 @@ const config: PlaywrightTestConfig = {
     // trace: "retain-on-failure",
   },
   // globalSetup: require.resolve("./global-setup"),
-  // grep: [new RegExp("@validation")],
-  testMatch: ["get_district.api.test.ts"],
+  // grep: [new RegExp("@getDistrict")],
+  testMatch: ["*_district.api.test.ts"],
   // testMatch: ["login.api.test.ts"],
   // reporter: [["dot"], ["allure-playwright"]],
-  reporter: [["dot"]],
+  // reporter: [["list"], ["html"]],
+  reporter: [["list"]],
 };
 
 export default config;

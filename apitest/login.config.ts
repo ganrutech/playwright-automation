@@ -8,7 +8,7 @@ const config: PlaywrightTestConfig = {
     browserName: "chromium",
     screenshot: "only-on-failure",
   },
-  // grep: [new RegExp("@validation")],
+  grep: [new RegExp("@login-success")],
   testMatch: ["login.api.test.ts"],
   // reporter: [["dot"], ["allure-playwright"]],
   reporter: [["dot"]],

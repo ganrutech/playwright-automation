@@ -22,14 +22,15 @@ test.describe("Login API", () => {
   });
 
   //   Success scenario
-  test("should login success", async ({ request, baseURL }) => {
+  test("should login success @login-success", async ({ request, baseURL }) => {
     const _response = await request.post(`${baseURL}${EndPoint}`, {
       data: AuthData,
     });
 
+    const jsonData = await _response.json();
+
     expect(_response.ok()).toBeTruthy();
     expect(_response.status()).toBe(200);
-    const jsonData = await _response.json();
 
     fs.writeFile("apiToken.json", JSON.stringify(jsonData), (err: any) => {
       if (err) throw err;

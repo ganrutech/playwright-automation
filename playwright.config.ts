@@ -17,9 +17,9 @@ const config: PlaywrightTestConfig = {
   // globalSetup: require.resolve("./global-setup"),
   // grep: [new RegExp("@validation")],
   // testMatch: ["login.test.ts"],
-  // testMatch: ["login.api.test.ts"],
+  testMatch: ["validate_form_district.ts"],
   // reporter: [["dot"], ["allure-playwright"]],
-  reporter: [["dot"]],
+  reporter: [["list"]],
 };
 
 export default config;
