@@ -50,7 +50,7 @@ test("Should not accept duplicate district name", async ({
 
   const resData = await _response.json();
 
-  expect(_response.ok()).toBeFalsy();
+  expect(_response.ok()).toBeTruthy();
   expect(_response.status()).toBe(400);
   expect(resData?.error).toHaveProperty(
     "message.district_name",

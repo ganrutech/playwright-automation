@@ -46,7 +46,7 @@ test.describe("Login", () => {
       page.waitForNavigation(),
       loginPage.login("Administrator", "Network@123"),
     ]);
-    // const ctxt = await page.context();
-    // await ctxt.storageState({ path: "auth.json" });
+    const ctxt = await page.context();
+    await ctxt.storageState({ path: "auth.json" });
   });
 });

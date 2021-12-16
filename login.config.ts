@@ -4,21 +4,16 @@ const config: PlaywrightTestConfig = {
   // retries: 0,
   use: {
     headless: false,
+    baseURL: "http://localhost:8000",
+    browserName: "chromium",
+    screenshot: "only-on-failure",
     launchOptions: {
       slowMo: 200,
     },
-    baseURL: "http://localhost:8000",
-    // channel: "chrome",
-    browserName: "chromium",
-    screenshot: "only-on-failure",
-    // trace: "retain-on-failure",
-    storageState: "auth.json",
   },
-  // globalSetup: require.resolve("./global-setup"),
-  // grep: [new RegExp("@validation")],
-  testMatch: ["validate_form_district.ts"],
+  testMatch: ["login.test.ts"],
   // reporter: [["dot"], ["allure-playwright"]],
-  reporter: [["list"]],
+  reporter: [["dot"]],
 };
 
 export default config;
